@@ -1,0 +1,141 @@
+/* Add your CSS here */
+/* Intel-branded hero section */
+.hero {
+  background: #004578; /* Darker Intel blue for better contrast */
+  color: #fff; /* White text for contrast */
+  text-align: center;
+  padding: 40px 10px 30px 10px;
+}
+
+/* Intel logo styling */
+.intel-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+/* Hero headline */
+.hero-title {
+  font-size: 2.2em;
+  margin: 10px 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Hero subheading */
+.hero-subtitle {
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #e3f2fd;
+}
+
+/* Timeline section uses Flexbox for horizontal scroll */
+.timeline {
+  display: flex;
+  flex-direction: row; /* Cards in a row */
+  overflow-x: auto; /* Scroll horizontally if needed */
+  gap: 20px; /* Space between cards */
+  padding: 30px 10px;
+  background: #f5f7fa;
+
+  /* Add these lines for scroll snap */
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snap */
+  scroll-padding-left: 10px;     /* Optional: aligns first card nicely */
+}
+
+/* Each milestone card */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  min-width: 250px;
+  max-width: 260px;
+  flex: 0 0 auto; /* Prevent shrinking */
+  padding: 18px 14px 30px 14px;
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Add these lines for smooth transitions and scroll snap */
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  scroll-snap-align: start; /* Each card is a snap point */
+}
+
+/* Card headline styles */
+.card h2 {
+  color: #0071c5;
+  margin: 0 0 6px 0;
+  font-size: 1.2em;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  color: #222;
+}
+
+/* Card image styling */
+/* This makes all images inside .card the same width */
+.card img {
+  width: 100%;      /* Makes the image fill the card's width */
+  max-width: 250px; /* Limits the image to 250 pixels wide */
+  height: 100px;     /* Keeps the image from looking squished */
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+/* Card text */
+.card p {
+  color: #333;
+  font-size: 0.98em;
+  margin-bottom: 0;
+}
+
+/* Hidden details, shown on hover */
+.card-details {
+  display: none; /* Hide by default */
+  background: #004578; /* Darker blue for better contrast */
+  color: #fff;
+  padding: 10px;
+  border-radius: 7px;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.95em;
+  z-index: 2;
+}
+
+/* Show details on hover */
+.card:hover .card-details {
+  display: block;
+}
+
+/* Card hover effect */
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0,113,197,0.22); /* Bigger shadow */
+  transform: translateY(-8px) scale(1.05) rotate(-1deg); /* Lift, scale, rotate */
+  background: #e3f2fd; /* Subtle highlight */
+}
+
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 700px) {
+  .timeline {
+    flex-direction: column;
+    gap: 18px;
+    overflow-x: visible;
+    scroll-snap-type: none; /* Disable snap on small screens */
+  }
+  .card {
+    max-width: 100%;
+    min-width: 0;
+    scroll-snap-align: none; /* Disable snap on small screens */
+  }
+}
+
+/* Style the scroll hint text */
+.scroll-hint {
+  text-align: center;
+  color: #0071c5;
+  font-size: 1em;
+  margin: 20px 0;
+}
